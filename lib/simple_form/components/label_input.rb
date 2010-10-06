@@ -6,7 +6,7 @@ module SimpleForm
       end
 
       def label_input
-        (options[:label] == false ? "" : label) + input
+        (options[:label] == false ? "".force_encoding('utf-8') : label.force_encoding('utf-8')) + input.force_encoding('utf-8')
       end
     end
   end

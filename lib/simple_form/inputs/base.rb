@@ -40,10 +40,10 @@ module SimpleForm
       end
 
       def render
-        content = "".html_safe
+        content = "".force_encoding('utf-8').html_safe
         components_list.each do |component|
           next if options[component] == false
-          content.safe_concat send(component).to_s
+          content.safe_concat send(component).to_s.force_encoding('utf-8')
         end
         wrap(content)
       end
